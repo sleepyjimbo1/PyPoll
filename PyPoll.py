@@ -5,10 +5,7 @@ election_csv = os.path.join(r"C:\Users\jimmy\Downloads\Module_3\PyPoll\Resources
 
 ballot_list = []
 county_list = []
-candidate_list = []
-
 unique_candidates = []
-previous_candidate = "placeholder"
 
 with open(election_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -22,10 +19,9 @@ with open(election_csv) as csvfile:
         if candidate not in unique_candidates:
             unique_candidates.append(candidate)
             ballot_list.append(0)
+        # Counting the number of votes for each candidate
         ballot_list[unique_candidates.index(candidate)] +=1
-        # ballot_list.append(ballot_id)
         county_list.append(county)
-        # candidate_list.append(candidate)
 
 #    The total number of votes cast
 total_votes = ballot_list[0] + ballot_list[1] + ballot_list[2]
